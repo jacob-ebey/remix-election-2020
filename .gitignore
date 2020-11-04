@@ -1,5 +1,8 @@
 node_modules/
 
 /.cache
+/.firebase
 /build
 /public/build
+
+.npmrc

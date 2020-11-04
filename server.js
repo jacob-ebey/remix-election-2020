@@ -8,19 +8,32 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-app.use(express.static("public"));
+if (require.main === module) {
+  app.use(express.static("public"));
 
-app.get(
-  "*",
-  createRequestHandler({
-    getLoadContext() {
-      // Whatever you return here will be passed as `context` to your loaders.
-    }
-  })
-);
+  app.get(
+    "*",
+    createRequestHandler({
+      getLoadContext() {
+        // Whatever you return here will be passed as `context` to your loaders.
+      },
+    })
+  );
 
-let port = process.env.PORT || 3000;
+  let port = process.env.PORT || 3000;
 
-app.listen(port, () => {
-  console.log(`Express server started on http://localhost:${port}`);
-});
+  app.listen(port, () => {
+    console.log(`Express server started on http://localhost:${port}`);
+  });
+} else {
+  app.get(
+    "*",
+    createRequestHandler({
+      getLoadContext() {
+        // Whatever you return here will be passed as `context` to your loaders.
+      },
+    })
+  );
+}
+
+module.exports = app;

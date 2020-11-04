@@ -1,6 +1,7 @@
 {
   "name": "remix-starter-express",
   "version": "1.0.0",
+  "main": "src/functions.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production remix build && tsc -b",
     "dev": "concurrently \"remix run\" \"tsc -b -w\" \"nodemon --ignore app server.js\"",
@@ -12,11 +13,14 @@
     "@remix-run/loader": "^0.6.2",
     "@remix-run/react": "^0.6.2",
     "express": "^4.17.1",
+    "firebase-admin": "^9.3.0",
+    "firebase-functions": "^3.11.0",
     "morgan": "^1.10.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-router": "^6.0.0-beta.0",
-    "react-router-dom": "^6.0.0-beta.0"
+    "react-router-dom": "^6.0.0-beta.0",
+    "react-usa-map": "^1.5.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.53",
